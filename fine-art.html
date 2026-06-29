@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raima Saha - Fine Art</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav id="nav" class="nav"></nav>
+
+  <main class="page-content">
+    <div class="container">
+      <div class="section-header">
+        <h2>Fine Art</h2>
+      </div>
+      <div class="masonry-grid" id="gallery"></div>
+    </div>
+  </main>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close">&times;</button>
+    <div class="lightbox-content">
+      <img src="" alt="">
+      <div class="lightbox-caption">
+        <h3></h3>
+        <p></p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="https://github.com/worldofrs" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/raima-saha-/" target="_blank">LinkedIn</a>
+        <a href="https://www.etsy.com/shop/RSPaletteStudio" target="_blank">Etsy</a>
+        <span>&copy; 2026 Raima Saha</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const gallery = document.getElementById('gallery');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = lightbox.querySelector('.lightbox-content img');
+      const lightboxTitle = lightbox.querySelector('.lightbox-caption h3');
+      const lightboxMeta = lightbox.querySelector('.lightbox-caption p');
+
+      // Fetch and render gallery
+      fetch('data/fine-art.json')
+        .then(res => res.json())
+        .then(pieces => {
+          gallery.innerHTML = pieces.map(piece => {
+            const imgSrc = piece.image || 'assets/images/placeholder.png';
+            const meta = [piece.medium, piece.year].filter(Boolean).join(' · ');
+
+            return `
+              <div class="masonry-item" data-src="${imgSrc}" data-title="${piece.title}" data-meta="${meta}">
+                <img src="${imgSrc}" alt="${piece.title}">
+                <div class="masonry-item-overlay">
+                  <div class="masonry-item-info">
+                    <h3>${piece.title}</h3>
+                    <p>${meta}</p>
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join('');
+
+          // Add click listeners to open lightbox
+          gallery.querySelectorAll('.masonry-item').forEach(item => {
+            item.addEventListener('click', () => {
+              lightboxImg.src = item.dataset.src;
+              lightboxImg.alt = item.dataset.title;
+              lightboxTitle.textContent = item.dataset.title;
+              lightboxMeta.textContent = item.dataset.meta;
+              lightbox.classList.add('open');
+            });
+          });
+        })
+        .catch(err => {
+          gallery.innerHTML = '<p class="text-muted">Could not load gallery.</p>';
+          console.error(err);
+        });
+
+      // Close lightbox on X button
+      lightbox.querySelector('.lightbox-close').addEventListener('click', () => {
+        lightbox.classList.remove('open');
+      });
+
+      // Close lightbox on background click
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          lightbox.classList.remove('open');
+        }
+      });
+
+      // Close lightbox on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          lightbox.classList.remove('open');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

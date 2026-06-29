@@ -1,0 +1,34 @@
+[
+  {
+    "title": "LeetCode Dashboard",
+    "category": "swe",
+    "description": "A dashboard for tracking LeetCode progress with stats, streaks, and problem breakdowns.",
+    "image": "",
+    "tags": ["Python", "React", "API"],
+    "link": ""
+  },
+  {
+    "title": "AI Chat Wrapper",
+    "category": "swe",
+    "description": "A custom interface for interacting with large language models, with conversation history and prompt templates.",
+    "image": "",
+    "tags": ["JavaScript", "Node.js", "OpenAI"],
+    "link": ""
+  },
+  {
+    "title": "Interactive Data Explorer",
+    "category": "dataviz",
+    "description": "A D3.js visualization that lets users explore and filter multidimensional datasets interactively.",
+    "image": "",
+    "tags": ["D3.js", "JavaScript", "SVG"],
+    "link": ""
+  },
+  {
+    "title": "Climate Trends Visualization",
+    "category": "dataviz",
+    "description": "Animated charts showing temperature and precipitation trends over the last century.",
+    "image": "",
+    "tags": ["D3.js", "Python", "Data"],
+    "link": ""
+  }
+]

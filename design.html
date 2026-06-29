@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raima Saha - Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav id="nav" class="nav"></nav>
+
+  <main class="page-content">
+    <div class="container">
+      <div class="section-header">
+        <h2>Design</h2>
+      </div>
+      <div id="design-projects"></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="https://github.com/worldofrs" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/raima-saha-/" target="_blank">LinkedIn</a>
+        <a href="https://www.etsy.com/shop/RSPaletteStudio" target="_blank">Etsy</a>
+        <span>&copy; 2026 Raima Saha</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/projects.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadProjects('data/design.json', 'design-projects', { filters: true });
+    });
+  </script>
+</body>
+</html>

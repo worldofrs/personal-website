@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Feature Article: Campus Tech Culture",
+    "category": "newspaper",
+    "description": "An investigative piece on how technology is reshaping student life on campus.",
+    "image": "",
+    "tags": ["Writing", "Journalism"],
+    "link": ""
+  },
+  {
+    "title": "Editorial Illustrations",
+    "category": "newspaper",
+    "description": "Illustrations created for the school newspaper's opinion section.",
+    "image": "",
+    "tags": ["Illustration", "Editorial"],
+    "link": ""
+  }
+]

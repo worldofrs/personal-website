@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raima Saha - Experience</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav id="nav" class="nav"></nav>
+
+  <main class="page-content">
+    <div class="container">
+      <div class="section-header">
+        <h2>Experience</h2>
+      </div>
+
+      <!-- Tabs: Experience / Resume PDF -->
+      <div class="tabs">
+        <button class="tab-btn active" id="tab-experience">Experience</button>
+        <button class="tab-btn" id="tab-resume">Resume PDF</button>
+      </div>
+
+      <!-- Experience content -->
+      <div id="experience-view">
+        <!-- Education -->
+        <div class="resume-section">
+          <h2>Education</h2>
+          <div class="resume-entry">
+            <h3>Your University</h3>
+            <p class="meta">B.S. in Your Major · Expected Graduation 20XX</p>
+            <ul>
+              <li>Relevant coursework, honors, or GPA here</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="resume-section">
+          <h2>Work Experience</h2>
+          <div class="resume-entry">
+            <h3>Role Title</h3>
+            <p class="meta">Company or Organization · Date Range</p>
+            <ul>
+              <li>What you did and the impact it had</li>
+              <li>Another accomplishment or responsibility</li>
+            </ul>
+          </div>
+          <div class="resume-entry">
+            <h3>Role Title</h3>
+            <p class="meta">Company or Organization · Date Range</p>
+            <ul>
+              <li>What you did and the impact it had</li>
+              <li>Another accomplishment or responsibility</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="resume-section">
+          <h2>Projects</h2>
+          <div class="resume-entry">
+            <h3>Project Name</h3>
+            <p class="meta">Tech stack used · Date</p>
+            <ul>
+              <li>What it does and why it matters</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="resume-section">
+          <h2>Skills</h2>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h4>Languages</h4>
+              <p>Python, JavaScript, HTML/CSS, etc.</p>
+            </div>
+            <div class="skill-category">
+              <h4>Frameworks & Tools</h4>
+              <p>React, D3.js, Node.js, Git, etc.</p>
+            </div>
+            <div class="skill-category">
+              <h4>Design</h4>
+              <p>Figma, Illustrator, Photoshop, etc.</p>
+            </div>
+            <div class="skill-category">
+              <h4>Other</h4>
+              <p>Fine art, journalism, etc.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resume PDF view (hidden by default) -->
+      <div id="resume-view" style="display: none;">
+        <div style="display: flex; justify-content: flex-end; margin-bottom: var(--space-md);">
+          <a href="assets/resume.pdf" class="btn btn-primary" target="_blank" download>Download PDF</a>
+        </div>
+        <iframe
+          src="assets/images/resume.pdf"
+          style="width: 100%; height: 80vh; border: 1px solid var(--color-border);"
+          title="Resume PDF"
+        ></iframe>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="https://github.com/worldofrs" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/raima-saha-/" target="_blank">LinkedIn</a>
+        <a href="https://www.etsy.com/shop/RSPaletteStudio" target="_blank">Etsy</a>
+        <span>&copy; 2026 Raima Saha</span>
+      </div>
+      
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabExp = document.getElementById('tab-experience');
+      const tabRes = document.getElementById('tab-resume');
+      const viewExp = document.getElementById('experience-view');
+      const viewRes = document.getElementById('resume-view');
+
+      tabExp.addEventListener('click', () => {
+        tabExp.classList.add('active');
+        tabRes.classList.remove('active');
+        viewExp.style.display = '';
+        viewRes.style.display = 'none';
+      });
+
+      tabRes.addEventListener('click', () => {
+        tabRes.classList.add('active');
+        tabExp.classList.remove('active');
+        viewRes.style.display = '';
+        viewExp.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>
